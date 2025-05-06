@@ -25,6 +25,13 @@ public class User {
 	
 	@Column(name="password_hash", nullable=false)
 	private String hashedPassword;
+	
+	
+	public User(String userName, String password) {
+		this.userName = userName;
+		this.hashedPassword = Utilities.hashString(password);
+		System.out.println(this.userName + ": " + this.hashedPassword);
+	}
 
 	public int getId() {
 		return id;
