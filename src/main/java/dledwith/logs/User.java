@@ -17,13 +17,13 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	@Column(name="name", nullable=false, unique=true)
+	@Column(name = "name", nullable = false, unique = true)
 	private String userName;
 	
-	@Column(name="email", nullable=false)
+	@Column(name = "email", nullable = false)
 	private String email;
 	
-	@Column(name="password_hash", nullable=false)
+	@Column(name = "password_hash", nullable = false)
 	private String hashedPassword;
 	
 	
@@ -63,23 +63,6 @@ public class User {
 
 	public void setHashedPassword(String hashedPassword) {
 		this.hashedPassword = hashedPassword;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(userName);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		User other = (User) obj;
-		return Objects.equals(userName, other.userName);
 	}
 
 }
