@@ -41,7 +41,13 @@ public class Logbook {
 	void logDateTime() {
 		this.createDateTime = LocalDateTime.now();
 	}
-
+	
+	/**
+	 * A Logbook is created with a reference to a 
+	 * user and the logbook's name
+	 * @param user referenced user
+	 * @param name user provided
+	 */
 	public Logbook(User user, String name) {
 		this.user = user;
 		this.name = name;

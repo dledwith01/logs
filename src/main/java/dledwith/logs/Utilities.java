@@ -19,8 +19,8 @@ public class Utilities {
 
 	/**
 	 * 
-	 * @param plainString
-	 * @param hashedString
+	 * @param plainString a plan string
+	 * @param hashedString a hashed string
 	 * @return true if the plainString matches the hashedString
 	 */
 	public static boolean verifyString(String plainString, String hashedString) {

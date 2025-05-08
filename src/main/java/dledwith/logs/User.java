@@ -36,7 +36,13 @@ public class User {
 	private void logDateTime() {
 		this.createDateTime = LocalDateTime.now();
 	}
-
+	
+	/**
+	 * A User is created with a user name, an email, and a password.
+	 * @param userName must be unique, user provided
+	 * @param email must be unique, user provided
+	 * @param password user provided
+	 */
 	public User(String userName, String email, String password) {
 		this.userName = userName;
 		this.email = email;

@@ -37,6 +37,12 @@ public class Log {
 		this.logDateTime = LocalDateTime.now();
 	}
 	
+	/**
+	 * A Log is created with a reference to a logbook
+	 * and the value to be logged.
+	 * @param logbook referenced logbook
+	 * @param value to be logged
+	 */
 	public Log(Logbook logbook, double value) {
 		this.logbook = logbook;
 		this.value = value;
