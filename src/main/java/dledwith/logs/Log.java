@@ -11,6 +11,9 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 
+/**
+ * Defines a Log object.
+ */
 @Entity
 @Table(name = "logs", schema = "logs")
 public class Log {

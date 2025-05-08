@@ -13,6 +13,9 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 
+/**
+ * Defines a Logbook object.
+ */
 @Entity
 @Table(name = "logbooks", schema = "logs")
 public class Logbook {

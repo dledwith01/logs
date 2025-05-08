@@ -10,7 +10,7 @@ import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 
 /**
- * Defines a User object
+ * Defines a User object.
  */
 @Entity
 @Table(name = "users", schema = "logs")
