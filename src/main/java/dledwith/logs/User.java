@@ -21,20 +21,21 @@ public class User {
 	@Column(name = "name", nullable = false, unique = true)
 	private String userName;
 	
-	@Column(name = "email")
+	@Column(name = "email", nullable = false)
 	private String email;
 	
 	@Column(name = "password_hash", nullable = false)
 	private String hashedPassword;
 	
 	
-	public User(String userName, String password) {
+	public User(String userName, String email, String password) {
 		this.userName = userName;
+		this.email = email;
 		this.hashedPassword = Utilities.hashString(password);
-		System.out.println(this.userName + ": " + this.hashedPassword);
 	}
 	
-	protected User() {} // Hibernate needs this.
+	// Hibernate needs no-arg
+	protected User() {}
 
 	public int getId() {
 		return id;

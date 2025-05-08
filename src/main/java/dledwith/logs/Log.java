@@ -1,11 +1,12 @@
 package dledwith.logs;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
@@ -14,7 +15,8 @@ import jakarta.persistence.Table;
 @Table(name = "logs", schema = "logs")
 public class Log {
 	
-	@ManyToOne
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "logbook_id")
 	private Logbook logbook;
 	
 	@Id
@@ -25,11 +27,11 @@ public class Log {
 	private double value;
 	
 	@Column(name = "log_date_time")
-	private Date logDateTime;
+	private LocalDateTime logDateTime;
 	
 	@PrePersist
 	void logDateTime() {
-		this.logDateTime = new Date(System.currentTimeMillis());
+		this.logDateTime = LocalDateTime.now();
 	}
 	
 	public Log(Logbook logbook, double value) {
@@ -37,7 +39,8 @@ public class Log {
 		this.value = value;
 	}
 	
-	protected Log() {} // Hibernate needs this.
+	// Hibernate needs no-arg
+	protected Log() {}
 
 	public Logbook getLogbook() {
 		return logbook;
@@ -63,14 +66,12 @@ public class Log {
 		this.value = value;
 	}
 
-	public Date getLogDateTime() {
+	public LocalDateTime getLogDateTime() {
 		return logDateTime;
 	}
 
-	public void setLogDateTime(Date logDateTime) {
+	public void setLogDateTime(LocalDateTime logDateTime) {
 		this.logDateTime = logDateTime;
 	}
 	
-	
-
 }

@@ -1,7 +1,7 @@
 package dledwith.logs;
 
 import java.util.ArrayList;
-
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,8 +18,9 @@ public class Logbook {
 	@ManyToOne
 	private User user;
 	
-	@OneToMany
-	private ArrayList<Log> log;
+	@OneToMany(mappedBy = "logbook", cascade = CascadeType.PERSIST)
+	@Column(name = "log")
+	private ArrayList<Log> logs;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +34,8 @@ public class Logbook {
 		this.name = name;
 	}
 	
-	protected Logbook() {} // Hibernate needs this.
+	// Hibernate needs no-arg
+	protected Logbook() {}
 
 	public User getUser() {
 		return user;
@@ -44,11 +46,19 @@ public class Logbook {
 	}
 
 	public ArrayList<Log> getLog() {
-		return log;
+		return logs;
 	}
 
 	public void setLog(ArrayList<Log> log) {
-		this.log = log;
+		this.logs = log;
+	}
+	
+	public void addLog(Log log) {
+		this.logs.add(log);
+	}
+	
+	public void removelog(Log log) {
+		this.logs.remove(log);
 	}
 
 	public int getId() {
