@@ -36,13 +36,15 @@ public class Log {
 	void logDateTime() {
 		this.logDateTime = LocalDateTime.now();
 	}
-
+	
 	public Log(Logbook logbook, double value) {
 		this.logbook = logbook;
 		this.value = value;
 	}
 
-	// Hibernate needs no-arg
+	/**
+	 * No argument constructor for Hibernate.
+	 */
 	protected Log() {
 	}
 

@@ -47,7 +47,9 @@ public class Logbook {
 		this.name = name;
 	}
 
-	// Hibernate needs no-arg
+	/**
+	 * No argument constructor for Hibernate.
+	 */
 	protected Logbook() {
 	}
 

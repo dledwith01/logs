@@ -43,7 +43,9 @@ public class User {
 		this.hashedPassword = Utilities.hashString(password);
 	}
 
-	// Hibernate needs no-arg
+	/**
+	 * No argument constructor for Hibernate.
+	 */
 	protected User() {
 	}
 
