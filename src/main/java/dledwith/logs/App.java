@@ -22,6 +22,8 @@ public class App {
             User user = new User("smallz", "email@address.com", "password");
             Logbook logbook = new Logbook(user, "weight");
             Log log = new Log(logbook, 167.3);
+            Log log1 = new Log(logbook, 173.4);
+            log.setValue(50);
  
             session.beginTransaction();
  
@@ -30,6 +32,8 @@ public class App {
             session.persist(user);
             session.persist(logbook);
             session.persist(log);
+            session.persist(log1);
+            session.merge(log);
  
             session.getTransaction().commit();
             
