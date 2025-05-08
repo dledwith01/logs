@@ -5,21 +5,23 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 /**
  * Defines a User object
  */
 @Entity
+@Table(name = "users", schema = "logs")
 public class User {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@Column(name = "name", nullable = false, unique = true)
 	private String userName;
 	
-	@Column(name = "email", nullable = false)
+	@Column(name = "email")
 	private String email;
 	
 	@Column(name = "password_hash", nullable = false)
@@ -31,6 +33,8 @@ public class User {
 		this.hashedPassword = Utilities.hashString(password);
 		System.out.println(this.userName + ": " + this.hashedPassword);
 	}
+	
+	protected User() {} // Hibernate needs this.
 
 	public int getId() {
 		return id;
