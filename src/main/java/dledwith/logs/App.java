@@ -16,7 +16,7 @@ public class App {
 		try (SessionFactory sessionFactory = configuration.buildSessionFactory();
 				Session session = sessionFactory.openSession()) {
 
-			User user = new User("smallz", "email@address.com", "password");
+			User user = new User("smallz", "password");
 			Logbook logbook = new Logbook(user, "weight");
 			Log log = new Log(logbook, 167.3);
 			Log log1 = new Log(logbook, 173.4);
