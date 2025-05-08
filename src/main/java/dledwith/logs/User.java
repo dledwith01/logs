@@ -15,38 +15,36 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "users", schema = "logs")
 public class User {
-	
-	/**
-	 * User id, created by the database.
-	 */
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@Column(name = "name", nullable = false, unique = true)
 	private String userName;
-	
+
 	@Column(name = "email", nullable = false)
 	private String email;
-	
+
 	@Column(name = "password_hash", nullable = false)
 	private String hashedPassword;
-	
+
 	@Column(name = "createDateTime")
 	private LocalDateTime createDateTime;
-	
+
 	@PrePersist
-	void logDateTime() {
+	private void logDateTime() {
 		this.createDateTime = LocalDateTime.now();
 	}
-	
+
 	public User(String userName, String email, String password) {
 		this.userName = userName;
 		this.email = email;
 		this.hashedPassword = Utilities.hashString(password);
 	}
-	
+
 	// Hibernate needs no-arg
-	protected User() {}
+	protected User() {
+	}
 
 }

@@ -14,32 +14,33 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "logs", schema = "logs")
 public class Log {
-	
+
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "logbook_id")
 	private Logbook logbook;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@Column(name = "value")
 	private double value;
-	
+
 	@Column(name = "log_date_time")
 	private LocalDateTime logDateTime;
-	
+
 	@PrePersist
 	void logDateTime() {
 		this.logDateTime = LocalDateTime.now();
 	}
-	
+
 	public Log(Logbook logbook, double value) {
 		this.logbook = logbook;
 		this.value = value;
 	}
-	
+
 	// Hibernate needs no-arg
-	protected Log() {}
-	
+	protected Log() {
+	}
+
 }

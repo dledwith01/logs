@@ -6,7 +6,7 @@ import org.mindrot.jbcrypt.BCrypt;
  * A collection of miscellaneous methods.
  */
 public class Utilities {
-	
+
 	/**
 	 * 
 	 * @param plainString String to be hashed
@@ -16,12 +16,12 @@ public class Utilities {
 		String salt = BCrypt.gensalt(12);
 		return BCrypt.hashpw(plainString, salt);
 	}
-	
+
 	/**
 	 * 
 	 * @param plainString
 	 * @param hashedString
-	 * @return If the plainString and the hashedString match, return true. Otherwise return false.
+	 * @return true if the plainString matches the hashedString
 	 */
 	public static boolean verifyString(String plainString, String hashedString) {
 		return BCrypt.checkpw(plainString, hashedString);
