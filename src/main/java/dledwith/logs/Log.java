@@ -41,37 +41,5 @@ public class Log {
 	
 	// Hibernate needs no-arg
 	protected Log() {}
-
-	public Logbook getLogbook() {
-		return logbook;
-	}
-
-	public void setLogbook(Logbook logbook) {
-		this.logbook = logbook;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public double getValue() {
-		return value;
-	}
-
-	public void setValue(double value) {
-		this.value = value;
-	}
-
-	public LocalDateTime getLogDateTime() {
-		return logDateTime;
-	}
-
-	public void setLogDateTime(LocalDateTime logDateTime) {
-		this.logDateTime = logDateTime;
-	}
 	
 }

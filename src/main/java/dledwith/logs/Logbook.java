@@ -1,5 +1,6 @@
 package dledwith.logs;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -9,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 
 @Entity
@@ -29,6 +31,14 @@ public class Logbook {
 	@Column(name = "name")
 	private String name;
 	
+	@Column(name = "createDateTime")
+	private LocalDateTime createDateTime;
+	
+	@PrePersist
+	void logDateTime() {
+		this.createDateTime = LocalDateTime.now();
+	}
+	
 	public Logbook(User user, String name) {
 		this.user = user;
 		this.name = name;
@@ -36,47 +46,5 @@ public class Logbook {
 	
 	// Hibernate needs no-arg
 	protected Logbook() {}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public ArrayList<Log> getLog() {
-		return logs;
-	}
-
-	public void setLog(ArrayList<Log> log) {
-		this.logs = log;
-	}
-	
-	public void addLog(Log log) {
-		this.logs.add(log);
-	}
-	
-	public void removelog(Log log) {
-		this.logs.remove(log);
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	
 
 }

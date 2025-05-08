@@ -1,10 +1,12 @@
 package dledwith.logs;
 
+import java.time.LocalDateTime;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 
 /**
@@ -14,6 +16,9 @@ import jakarta.persistence.Table;
 @Table(name = "users", schema = "logs")
 public class User {
 	
+	/**
+	 * User id, created by the database.
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -27,6 +32,13 @@ public class User {
 	@Column(name = "password_hash", nullable = false)
 	private String hashedPassword;
 	
+	@Column(name = "createDateTime")
+	private LocalDateTime createDateTime;
+	
+	@PrePersist
+	void logDateTime() {
+		this.createDateTime = LocalDateTime.now();
+	}
 	
 	public User(String userName, String email, String password) {
 		this.userName = userName;
@@ -36,37 +48,5 @@ public class User {
 	
 	// Hibernate needs no-arg
 	protected User() {}
-
-	public int getId() {
-		return id;
-	}
-	
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getHashedPassword() {
-		return hashedPassword;
-	}
-
-	public void setHashedPassword(String hashedPassword) {
-		this.hashedPassword = hashedPassword;
-	}
 
 }
