@@ -23,9 +23,6 @@ public class User {
 	@Column(name = "name", nullable = false, unique = true)
 	private String userName;
 
-	@Column(name = "email", nullable = false)
-	private String email;
-
 	@Column(name = "password_hash", nullable = false)
 	private String hashedPassword;
 
@@ -38,14 +35,12 @@ public class User {
 	}
 	
 	/**
-	 * A User is created with a user name, an email, and a password.
+	 * A User is created with a user name, and a password.
 	 * @param userName must be unique, user provided
-	 * @param email must be unique, user provided
 	 * @param password user provided
 	 */
-	public User(String userName, String email, String password) {
+	public User(String userName, String password) {
 		this.userName = userName;
-		this.email = email;
 		this.hashedPassword = Utilities.hashString(password);
 	}
 
