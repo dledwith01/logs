@@ -1,6 +1,8 @@
-package dledwith.logs;
+package dledwith.logs.entity;
 
 import java.time.LocalDateTime;
+
+import dledwith.logs.util.Utilities;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

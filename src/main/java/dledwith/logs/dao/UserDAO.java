@@ -1,8 +1,9 @@
-package dledwith.logs;
+package dledwith.logs.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import dledwith.logs.entity.User;
 
 public class UserDAO {
 
@@ -15,6 +16,12 @@ public class UserDAO {
 	public User findById(int id) {
 		try (Session session = sessionFactory.openSession()) {
 			return session.get(User.class, id);
+		}
+	}
+	
+	public User findByUserName(String userName) {
+		try (Session session = sessionFactory.openSession()) {
+			return session.get(User.class, userName);
 		}
 	}
 

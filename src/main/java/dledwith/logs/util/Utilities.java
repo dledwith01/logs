@@ -1,4 +1,4 @@
-package dledwith.logs;
+package dledwith.logs.util;
 
 import org.mindrot.jbcrypt.BCrypt;
 

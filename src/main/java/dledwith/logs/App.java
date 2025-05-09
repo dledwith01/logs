@@ -7,6 +7,13 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import dledwith.logs.dao.LogDAO;
+import dledwith.logs.dao.LogbookDAO;
+import dledwith.logs.dao.UserDAO;
+import dledwith.logs.entity.Log;
+import dledwith.logs.entity.Logbook;
+import dledwith.logs.entity.User;
+
 public class App {
 	public static void main(String[] args) {
 		/*

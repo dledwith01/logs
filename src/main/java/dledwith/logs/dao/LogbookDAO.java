@@ -1,10 +1,12 @@
-package dledwith.logs;
+package dledwith.logs.dao;
 
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import dledwith.logs.entity.Logbook;
+import dledwith.logs.entity.User;
 
 public class LogbookDAO {
 

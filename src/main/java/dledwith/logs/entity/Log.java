@@ -1,4 +1,4 @@
-package dledwith.logs;
+package dledwith.logs.entity;
 
 import java.time.LocalDateTime;
 import jakarta.persistence.Column;
