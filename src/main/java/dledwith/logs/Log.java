@@ -36,12 +36,12 @@ public class Log {
 	void logDateTime() {
 		this.logDateTime = LocalDateTime.now();
 	}
-	
+
 	/**
-	 * A Log is created with a reference to a logbook
-	 * and the value to be logged.
+	 * A Log is created with a reference to a logbook and the value to be logged.
+	 * 
 	 * @param logbook referenced logbook
-	 * @param value user provided
+	 * @param value   user provided
 	 */
 	public Log(Logbook logbook, double value) {
 		this.logbook = logbook;
@@ -54,4 +54,7 @@ public class Log {
 	protected Log() {
 	}
 
+	public int getId() {
+		return this.id;
+	}
 }

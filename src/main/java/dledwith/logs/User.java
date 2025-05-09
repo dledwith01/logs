@@ -33,9 +33,10 @@ public class User {
 	private void logDateTime() {
 		this.createDateTime = LocalDateTime.now();
 	}
-	
+
 	/**
 	 * A User is created with a user name, and a password.
+	 * 
 	 * @param userName must be unique, user provided
 	 * @param password user provided
 	 */
@@ -50,4 +51,7 @@ public class User {
 	protected User() {
 	}
 
+	public int getId() {
+		return this.id;
+	}
 }
